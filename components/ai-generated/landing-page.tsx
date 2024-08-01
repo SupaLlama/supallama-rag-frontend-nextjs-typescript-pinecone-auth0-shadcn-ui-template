@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
-export default function Component() {
+export default function LandingPageComponent() {
   return (
     <div className="flex flex-col min-h-[100dvh] bg-[#fdf2e9] text-[#333]">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -22,7 +22,7 @@ export default function Component() {
       <main className="flex-1 container mx-auto px-4 md:px-6 py-12 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
           <Image
-            src="/puppy-photo-cropped"
+            src="/puppy-photo-cropped.jpg"
             width={600}
             height={600}
             alt="Golden Retriever Puppy"
@@ -59,7 +59,7 @@ export default function Component() {
           </Card>
           <div className="text-center">
             <p className="text-muted-foreground">
-              Don\'t have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link href="#" className="text-[#e67e22] hover:underline" prefetch={false}>
                 Sign up
               </Link>

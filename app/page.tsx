@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
+import LandingPageComponent from "@/components/ai-generated/landing-page";
 
 export default function Home() {
   return (
-    <Button>Hello World!</Button>
+    <LandingPageComponent />
   );
 }

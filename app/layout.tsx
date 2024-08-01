@@ -1,14 +1,21 @@
 import "@/app/globals.css"
 
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import { cn } from "@/lib/utils"
 
 
-const fontSans = FontSans({ 
-  subsets: ["latin"],
-  variable: "--font-sans",
+const fontHeading = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-heading',
+})
+
+const fontBody = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-body',
 })
 
 export const metadata: Metadata = {
@@ -25,8 +32,9 @@ export default function RootLayout({
     <html lang="en">
       <body 
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          'antialiased',
+          fontHeading.variable,
+          fontBody.variable
         )}
       >
         {children}
