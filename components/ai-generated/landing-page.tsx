@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
+
 export default function LandingPageComponent() {
   return (
     <div className="flex flex-col min-h-[100dvh] bg-[#fdf2e9] text-[#333]">
