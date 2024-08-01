@@ -33,7 +33,7 @@ export default function Component() {
           <div>
             <h1 className="text-4xl md:text-5xl font-bold">Meet Goldie, your friendly AI assistant</h1>
             <p className="text-muted-foreground text-lg mt-2">
-              Goldie is a golden retriever themed AI chatbot that's here to help you with all your questions and tasks.
+              Goldie is a golden retriever themed AI chatbot that&apos;s here to help you with all your questions and tasks.
             </p>
           </div>
           <Card className="p-6 bg-white rounded-2xl shadow-lg">
