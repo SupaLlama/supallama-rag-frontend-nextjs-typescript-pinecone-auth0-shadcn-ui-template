@@ -7,6 +7,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
+import Link from "next/link"
 
 
 export default function ChatPageComponent() {
@@ -17,10 +18,15 @@ export default function ChatPageComponent() {
           <Image src="/puppy-profile-photo-cropped.jpg" alt="Golden Retriever" width={32} height={32} className="rounded-full" />
           <h1 className="text-xl font-bold">Goldie, the AI Pup</h1>
         </div>
-        <Button variant="ghost" size="icon" className="rounded-full hover:bg-[#FFE6CC] focus:bg-[#FFE6CC]">
-          <LogOutIcon className="w-5 h-5 text-[#8C6239]" />
-          <span className="sr-only">Sign out</span>
-        </Button>
+        <div className="flex items-center gap-4">
+          <Link href="#" target="_blank" className="text-sm font-medium hover:underline" prefetch={false}>
+            Crawl Websites with Goldie
+          </Link>
+          <Button variant="ghost" size="icon" className="text-[#333] hover:bg-[#FFBF82] focus:ring-[#FFCB9A]">
+            <LogOutIcon className="h-5 w-5" />
+            <span className="sr-only">Sign Out</span>
+          </Button>
+        </div>
       </header>
       <main className="flex-1 px-6 py-8">
         <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg">
