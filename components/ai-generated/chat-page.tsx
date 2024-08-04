@@ -4,10 +4,13 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 import Image from "next/image"
+import Link from "next/link"
+
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
-import Link from "next/link"
+
+import { signOut } from "@/app/actions"
 
 
 export default function ChatPageComponent() {
@@ -20,12 +23,14 @@ export default function ChatPageComponent() {
         </div>
         <div className="flex items-center gap-4">
           <Link href="#" target="_blank" className="text-sm font-medium hover:underline" prefetch={false}>
-            Crawl Websites with Goldie
+            Crawl Websites
           </Link>
-          <Button variant="ghost" size="icon" className="text-[#333] hover:bg-[#FFBF82] focus:ring-[#FFCB9A]">
-            <LogOutIcon className="h-5 w-5" />
-            <span className="sr-only">Sign Out</span>
-          </Button>
+          <form action={signOut}>
+            <Button type="submit" variant="ghost" size="icon" className="text-[#333] hover:bg-[#FFBF82] focus:ring-[#FFCB9A]">
+              <LogOutIcon className="h-5 w-5" />
+              <span className="sr-only">Sign Out</span>
+            </Button>
+          </form>
         </div>
       </header>
       <main className="flex-1 px-6 py-8">
