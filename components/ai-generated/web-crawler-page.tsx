@@ -24,6 +24,7 @@ import toast from "react-hot-toast"
 const initialCrawlState = {
   message: '',
   success: false,
+  taskId: undefined,
 }
 
 export default function WebCrawlerPageComponent() {

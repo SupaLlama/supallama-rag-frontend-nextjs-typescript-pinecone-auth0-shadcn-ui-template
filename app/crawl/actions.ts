@@ -24,17 +24,28 @@ export async function invokeCrawl(prevState: any, formData: FormData) {
   headers.append('Content-Type', 'application/json')
   headers.append('Accept', 'application/json')
   
-  const apiUrl = process.env.SUPALAMA_API_URL
-  const request = new Request(
-    `${apiUrl}/web-crawler/crawl-url-and-index`, {
-      headers: headers,
-      method: 'POST',
-      mode: 'cors',
-      body: `{"url": "${url}"}`
+  try {
+    const apiUrl = process.env.SUPALAMA_API_URL
+    const request = new Request(
+      `${apiUrl}/web-crawler/crawl-url-and-index`, {
+        headers: headers,
+        method: 'POST',
+        mode: 'cors',
+        body: `{"url": "${url}"}`
+      }
+    )
+    const response = await fetch(request)
+    const { task_id } =  await response.json()
+    return {
+      taskId: task_id,
+      message: '',
+      success: true,
+    } 
+  } catch (error) {
+    return {
+      message: error as string,
+      success: false,
+      taskId: undefined,
     }
-  )
-
-  const response = await fetch(request)
-  const { answer } =  await response.json()
-  return answer
+  }
 }
