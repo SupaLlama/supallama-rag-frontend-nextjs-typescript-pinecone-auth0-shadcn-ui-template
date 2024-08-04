@@ -82,7 +82,7 @@ export default function SignupPageComponent() {
           </div>
         </form>
         <div className="flex justify-center">
-          <Link href="#" className="text-sm text-[#666] hover:text-[#333]" prefetch={false}>
+          <Link href="/" className="text-sm text-[#666] hover:text-[#333]" prefetch={false}>
             Sign in instead
           </Link>
         </div>
