@@ -17,7 +17,7 @@ export default function LandingPageComponent() {
       <header className="px-4 lg:px-6 h-14 flex items-center">
         <Link href="#" className="flex items-center justify-center" prefetch={false}>
           <DogIcon className="h-8 w-8 text-[#e67e22]" />
-          <span className="text-2xl font-bold">Goldie</span>
+          <h1 className="text-xl font-bold">Goldie, the AI Pup</h1>
         </Link>
       </header>
       <main className="flex-1 container mx-auto px-4 md:px-6 py-12 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -52,7 +52,7 @@ export default function LandingPageComponent() {
               </div>
             </CardContent>
             <CardFooter className="flex justify-between items-center">
-              <Link href="#" className="text-sm text-[#e67e22] hover:underline" prefetch={false}>
+              <Link href="#" className="text-sm text-[#ffc107] hover:underline" prefetch={false}>
                 Forgot password?
               </Link>
               <Button
@@ -65,28 +65,15 @@ export default function LandingPageComponent() {
           <div className="text-center">
             <p className="text-muted-foreground">
               Don&apos;t have an account?{" "}
-              <Link href="#" className="text-[#e67e22] hover:underline" prefetch={false}>
+              <Link href="#" className="text-[#ffc107] hover:underline" prefetch={false}>
                 Sign up
               </Link>
             </p>
           </div>
         </div>
       </main>
-      <footer className="bg-[#e67e22] text-white py-6 w-full shrink-0 items-center px-4 md:px-6">
-        <div className="container flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm">&copy; 2024 Goldie. All rights reserved.</p>
-          <nav className="flex gap-4 sm:gap-6 mt-4 md:mt-0">
-            <Link href="#" className="text-sm hover:underline" prefetch={false}>
-              Privacy
-            </Link>
-            <Link href="#" className="text-sm hover:underline" prefetch={false}>
-              Terms
-            </Link>
-            <Link href="#" className="text-sm hover:underline" prefetch={false}>
-              Contact
-            </Link>
-          </nav>
-        </div>
+      <footer className="bg-[#FFCB9A] py-4 px-6 text-center text-sm text-muted-foreground">
+        &copy; 2024 Goldie the AI Pup. All rights reserved.
       </footer>
     </div>
   )
@@ -101,7 +88,7 @@ function DogIcon(props: any) {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
+      stroke="#ffc107"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

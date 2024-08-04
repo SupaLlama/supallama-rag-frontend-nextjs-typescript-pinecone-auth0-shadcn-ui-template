@@ -137,6 +137,9 @@ export default function ChatPageComponent() {
           </div>
         </div>
       </main>
+      <footer className="bg-[#FFCB9A] py-4 px-6 text-center text-sm text-muted-foreground">
+        &copy; 2024 Goldie the AI Pup. All rights reserved.
+      </footer>
     </div>
   )
 }
