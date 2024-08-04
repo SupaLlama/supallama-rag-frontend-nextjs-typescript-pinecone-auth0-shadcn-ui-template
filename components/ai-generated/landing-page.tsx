@@ -5,10 +5,13 @@
  */
 import Image from "next/image"
 import Link from "next/link"
+
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+
+import { login } from "@/app/actions"
 
 
 export default function LandingPageComponent() {
@@ -41,26 +44,29 @@ export default function LandingPageComponent() {
             <CardHeader>
               <CardTitle>Sign in to Goldie</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="m@example.com" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" />
-              </div>
-            </CardContent>
-            <CardFooter className="flex justify-between items-center">
-              <Link href="#" className="text-sm text-[#ffc107] hover:underline" prefetch={false}>
-                Forgot password?
-              </Link>
-              <Button
-                className="rounded-md border border-transparent bg-[#ffc107] py-2 px-4 text-sm font-medium text-[#333] hover:bg-[#ffdb4d] focus:outline-none focus:ring-2 focus:ring-[#ffc107] focus:ring-offset-2"
-              >
-              Sign in
-              </Button>
-            </CardFooter>
+            <form action={login}>
+              <CardContent className="space-y-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" placeholder="m@example.com" />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input id="password" type="password" />
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between items-center">
+                <Link href="#" className="text-sm text-[#ffc107] hover:underline" prefetch={false}>
+                  Forgot password?
+                </Link>
+                <Button
+                  type="submit"
+                  className="rounded-md border border-transparent bg-[#ffc107] py-2 px-4 text-sm font-medium text-[#333] hover:bg-[#ffdb4d] focus:outline-none focus:ring-2 focus:ring-[#ffc107] focus:ring-offset-2"
+                >
+                Sign in
+                </Button>
+              </CardFooter>
+            </form>
           </Card>
           <div className="text-center">
             <p className="text-muted-foreground">
