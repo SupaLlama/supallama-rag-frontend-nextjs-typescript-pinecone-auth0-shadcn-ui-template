@@ -48,11 +48,11 @@ export default function LandingPageComponent() {
               <CardContent className="space-y-4">
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="m@example.com" />
+                  <Input name="email" id="email" type="email" placeholder="m@example.com" />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="password">Password</Label>
-                  <Input id="password" type="password" />
+                  <Input name="password" id="password" type="password" />
                 </div>
               </CardContent>
               <CardFooter className="flex justify-between items-center">
