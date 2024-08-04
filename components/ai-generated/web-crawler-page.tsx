@@ -3,15 +3,37 @@
  * @see https://v0.dev/t/UTZcgODzZzd
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+'use client'
+
+import { useEffect } from "react"
+import { useFormState } from "react-dom"
+
 import Image from "next/image"
 import Link from "next/link"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
+
 import { signOut } from "@/app/actions"
+import { invokeCrawl } from "@/app/crawl/actions"
+import CrawlWebsiteButton from "@/app/crawl/crawlWebsiteButton"
+
 
 export default function WebCrawlerPageComponent() {
+  const initialCrawlState = {
+    error: '',
+    success: false,
+  }
+
+  const [crawlState, crawlFormAction] = useFormState(invokeCrawl, initialCrawlState)
+
+  useEffect(() => {
+
+
+  }, [crawlState])
+
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF8F0] text-[#333]">
       <header className="bg-[#FFD9B3] py-4 px-6 flex items-center justify-between">
@@ -42,15 +64,14 @@ export default function WebCrawlerPageComponent() {
           <div className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-bold mb-4">Website Crawler</h2>
             <p className="text-muted-foreground mb-6">Enter a website URL and click on the Crawl Website button. Goldie will then crawl and index the website&apos;s contents so that you&apos;ll be able to ask Goldie questions about it via the chat.</p>
-            <form className="flex items-center gap-4 mb-8">
+            <form action={crawlFormAction} className="flex items-center gap-4 mb-8">
               <Input
+                name="url"
                 type="url"
                 placeholder="Enter website URL"
                 className="flex-1 bg-[#FFF8F0] border-[#FFCB9A] focus:ring-0"
               />
-              <Button className="bg-[#FFCB9A] text-[#333] font-bold hover:bg-[#FFBF82] focus:ring-[#FFCB9A]">
-                Crawl Website
-              </Button>
+              <CrawlWebsiteButton />
             </form>
             <div className="overflow-x-auto">
               <Table>
