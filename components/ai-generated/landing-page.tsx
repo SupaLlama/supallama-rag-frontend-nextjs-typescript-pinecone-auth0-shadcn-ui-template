@@ -71,7 +71,7 @@ export default function LandingPageComponent() {
           <div className="text-center">
             <p className="text-muted-foreground">
               Don&apos;t have an account?{" "}
-              <Link href="#" className="text-[#ffc107] hover:underline" prefetch={false}>
+              <Link href="/signup" className="text-[#ffc107] hover:underline" prefetch={false}>
                 Sign up
               </Link>
             </p>
