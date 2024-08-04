@@ -5,7 +5,7 @@
  */
 'use client'
 
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { useFormState } from "react-dom"
 
 import Image from "next/image"
@@ -19,20 +19,23 @@ import { Badge } from "@/components/ui/badge"
 import { signOut } from "@/app/actions"
 import { invokeCrawl } from "@/app/crawl/actions"
 import CrawlWebsiteButton from "@/app/crawl/crawlWebsiteButton"
+import toast from "react-hot-toast"
 
+const initialCrawlState = {
+  message: '',
+  success: false,
+}
 
 export default function WebCrawlerPageComponent() {
-  const initialCrawlState = {
-    error: '',
-    success: false,
+  const [crawlFormState, crawlFormAction] = useFormState(invokeCrawl, initialCrawlState)
+
+  const formRef = useRef<HTMLFormElement>(null)
+
+  if (formRef?.current && crawlFormState?.success) {
+    toast.success("Successfully kicked off the web crawler in the background!")
+  } else if (crawlFormState?.message) {
+    toast.error(crawlFormState.message)
   }
-
-  const [crawlState, crawlFormAction] = useFormState(invokeCrawl, initialCrawlState)
-
-  useEffect(() => {
-
-
-  }, [crawlState])
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF8F0] text-[#333]">
@@ -64,7 +67,7 @@ export default function WebCrawlerPageComponent() {
           <div className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-bold mb-4">Website Crawler</h2>
             <p className="text-muted-foreground mb-6">Enter a website URL and click on the Crawl Website button. Goldie will then crawl and index the website&apos;s contents so that you&apos;ll be able to ask Goldie questions about it via the chat.</p>
-            <form action={crawlFormAction} className="flex items-center gap-4 mb-8">
+            <form ref={formRef} action={crawlFormAction} className="flex items-center gap-4 mb-8">
               <Input
                 name="url"
                 type="url"
