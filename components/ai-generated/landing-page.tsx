@@ -55,7 +55,11 @@ export default function LandingPageComponent() {
               <Link href="#" className="text-sm text-[#e67e22] hover:underline" prefetch={false}>
                 Forgot password?
               </Link>
-              <Button className="bg-[#e67e22] text-white hover:bg-[#c35b0a]">Sign in</Button>
+              <Button
+                className="rounded-md border border-transparent bg-[#ffc107] py-2 px-4 text-sm font-medium text-[#333] hover:bg-[#ffdb4d] focus:outline-none focus:ring-2 focus:ring-[#ffc107] focus:ring-offset-2"
+              >
+              Sign in
+              </Button>
             </CardFooter>
           </Card>
           <div className="text-center">
