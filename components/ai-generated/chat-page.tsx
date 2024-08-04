@@ -3,6 +3,10 @@
  * @see https://v0.dev/t/bA46Bwcv4p2
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+'use client'
+
+import { useFormState } from "react-dom"
+
 import Image from "next/image"
 import Link from "next/link"
 
@@ -11,9 +15,15 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
 
 import { signOut } from "@/app/actions"
+import { invokeQuery } from "@/app/chat/actions"
+
+
+const initialState = null
 
 
 export default function ChatPageComponent() {
+  const [state, formAction] = useFormState(invokeQuery, initialState)
+
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF8F0]">
       <header className="flex items-center justify-between px-6 py-4 bg-[#FFD9B3] shadow-md">
@@ -46,86 +56,17 @@ export default function ChatPageComponent() {
               </Avatar>
               <div className="flex-1 p-3 rounded-lg bg-[#FFF8F0]">
                 <p className="text-[#8C6239]">
-                  Hi there! I&apos;m Goldie, your friendly AI assistant. How can I help you today?
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 justify-end">
-              <div className="flex-1 p-3 rounded-lg bg-[#FFD9B3]">
-                <p className="text-[#8C6239]">
-                  I&apos;m looking for information on how to care for a golden retriever puppy. Can you help me with that?
-                </p>
-              </div>
-              <Avatar className="shrink-0">
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>U</AvatarFallback>
-              </Avatar>
-            </div>
-            <div className="flex items-start gap-3">
-              <Avatar className="shrink-0">
-                <AvatarImage src="/puppy-profile-photo-cropped.jpg" />
-                <AvatarFallback>GR</AvatarFallback>
-              </Avatar>
-              <div className="flex-1 p-3 rounded-lg bg-[#FFF8F0]">
-                <p className="text-[#8C6239]">
-                  Absolutely! As a golden retriever puppy, I&apos;d be happy to share some tips on caring for one. Here are a
-                  few key things to keep in mind:
-                </p>
-                <ul className="mt-2 list-disc pl-5 text-[#8C6239]">
-                  <li>Feed a high-quality puppy food and provide plenty of fresh water</li>
-                  <li>Establish a consistent routine for feeding, potty breaks, and playtime</li>
-                  <li>Socialize your puppy early and often to help them develop good manners</li>
-                  <li>Provide plenty of chew toys and interactive puzzles to keep them mentally stimulated</li>
-                  <li>Be patient and consistent with training, using positive reinforcement techniques</li>
-                </ul>
-                <p className="mt-2 text-[#8C6239]">
-                  Let me know if you have any other questions! I&apos;m always happy to help.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 justify-end">
-              <div className="flex-1 p-3 rounded-lg bg-[#FFD9B3]">
-                <p className="text-[#8C6239]">
-                  That&apos;s really helpful, thank you! I&apos;m also curious about the best ways to exercise a golden retriever
-                  puppy. Do you have any tips on that?
-                </p>
-              </div>
-              <Avatar className="shrink-0">
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>U</AvatarFallback>
-              </Avatar>
-            </div>
-            <div className="flex items-start gap-3">
-              <Avatar className="shrink-0">
-                <AvatarImage src="/puppy-profile-photo-cropped.jpg" />
-                <AvatarFallback>GR</AvatarFallback>
-              </Avatar>
-              <div className="flex-1 p-3 rounded-lg bg-[#FFF8F0]">
-                <p className="text-[#8C6239]">
-                  Great question! Golden retrievers are high-energy pups, so they need plenty of exercise to stay happy
-                  and healthy. Here are some tips for exercising a golden retriever puppy:
-                </p>
-                <ul className="mt-2 list-disc pl-5 text-[#8C6239]">
-                  <li>Take them on daily walks, gradually increasing the duration as they grow</li>
-                  <li>Engage them in fetch, tug-of-war, and other interactive games to burn off energy</li>
-                  <li>Introduce them to swimming, which is a great low-impact exercise for puppies</li>
-                  <li>Provide plenty of opportunities for them to run and play in a secure, fenced-in area</li>
-                  <li>
-                    Consider enrolling them in puppy training classes to help them learn obedience and socialization
-                    skills
-                  </li>
-                </ul>
-                <p className="mt-2 text-[#8C6239]">
-                  Remember to always supervise your puppy during exercise and adjust the intensity based on their age
-                  and energy level. Let me know if you have any other questions!
+                  {state ? state : 'Hi there! I\'m Goldie, your friendly AI assistant. How can I help you today?'}
                 </p>
               </div>
             </div>
           </div>
           <div className="px-6 py-4 border-t">
-            <form className="flex items-center">
+            <form action={formAction} className="flex items-center">
               <Input
+                name="message"
                 id="message"
+                required
                 placeholder="Type your message..."
                 className="flex-1 bg-[#FFF8F0] border-none focus:ring-0"
               />
