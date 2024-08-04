@@ -3,6 +3,7 @@
  * @see https://v0.dev/t/ZwGCly45T8V
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+import { signup } from "@/app/signup/actions"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -25,7 +26,7 @@ export default function SignupPageComponent() {
             Get the best search results with a friendly golden retriever by your side.
           </p>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form className="mt-8 space-y-6" action={signup}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="-space-y-px rounded-md shadow-sm">
             <div>
