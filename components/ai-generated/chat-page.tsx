@@ -22,7 +22,7 @@ export default function ChatPageComponent() {
           <h1 className="text-xl font-bold">Goldie, the AI Pup</h1>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="#" target="_blank" className="text-sm font-medium hover:underline" prefetch={false}>
+          <Link href="/crawl" className="text-sm font-medium hover:underline" prefetch={false}>
             Crawl Websites
           </Link>
           <form action={signOut}>

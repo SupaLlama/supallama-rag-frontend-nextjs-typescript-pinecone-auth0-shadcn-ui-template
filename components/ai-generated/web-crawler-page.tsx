@@ -9,8 +9,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
+import { signOut } from "@/app/actions"
 
-export default function Component() {
+export default function WebCrawlerPageComponent() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF8F0] text-[#333]">
       <header className="bg-[#FFD9B3] py-4 px-6 flex items-center justify-between">
@@ -25,13 +26,15 @@ export default function Component() {
           <h1 className="text-xl font-bold">Goldie, the AI Pup</h1>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="#" target="_blank" className="text-sm font-medium hover:underline" prefetch={false}>
+          <Link href="/chat" className="text-sm font-medium hover:underline" prefetch={false}>
             Chat with Goldie
           </Link>
-          <Button variant="ghost" size="icon" className="text-[#333] hover:bg-[#FFBF82] focus:ring-[#FFCB9A]">
-            <LogOutIcon className="h-5 w-5" />
-            <span className="sr-only">Sign Out</span>
-          </Button>
+          <form action={signOut}>
+            <Button variant="ghost" type="submit" size="icon" className="text-[#333] hover:bg-[#FFBF82] focus:ring-[#FFCB9A]">
+              <LogOutIcon className="h-5 w-5" />
+              <span className="sr-only">Sign Out</span>
+            </Button>
+          </form>
         </div>
       </header>
       <main className="flex-1 py-12 px-6 md:px-12">
