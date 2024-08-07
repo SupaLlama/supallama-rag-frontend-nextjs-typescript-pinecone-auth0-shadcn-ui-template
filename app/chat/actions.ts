@@ -27,7 +27,7 @@ export async function invokeQuery(prevState: any, formData: FormData) {
   headers.append('Accept', 'application/json')
  
   try {
-    const apiUrl = process.env.SUPALAMA_API_URL
+    const apiUrl = process.env.FASTAPI_URL
 
     const request = new Request(
       `${apiUrl}/llm/query-pinecone-index`, {

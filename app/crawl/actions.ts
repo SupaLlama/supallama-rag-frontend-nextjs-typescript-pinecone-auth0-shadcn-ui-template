@@ -25,7 +25,7 @@ export async function invokeCrawl(prevState: any, formData: FormData) {
   headers.append('Accept', 'application/json')
   
   try {
-    const apiUrl = process.env.SUPALAMA_API_URL
+    const apiUrl = process.env.FASTAPI_URL
     const request = new Request(
       `${apiUrl}/web-crawler/crawl-url-and-index`, {
         headers: headers,
